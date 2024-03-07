@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import './Sidebar.css';
@@ -13,6 +14,13 @@ import { useState } from 'react';
 
 function SideBar() {
   const [activeIcon, setActiveIcon] = useState(null);
+
+  useGSAP(() => {
+    // use selectors...
+    gsap.to(".side-icon", { rotation: "+=360", duration: 1 });
+    gsap.to(".side-icon:hover", { rotation: "+=360", duration: 3 });
+  });
+
   return (
       <div className="d-inline-flex flex-column justify-content-around align-items-center vh-100 p-3" style={{backgroundColor: '#161625', borderRadius: '25px 25px 25px 25px'}}>
         <div className="flex-grow-1 pt-3">
